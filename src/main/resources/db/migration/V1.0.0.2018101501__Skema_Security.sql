@@ -30,10 +30,3 @@ create table s_user (
   foreign key (id_role) references s_role(id),
   unique (username)
 );
-
-create table s_user_password (
-	id_user varchar(36) not null,
-	password varchar(255) not null,
-	primary key (id_user),
-	foreign key (id_user) references s_user (id)
-);

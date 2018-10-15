@@ -19,11 +19,3 @@ INSERT INTO s_user (id, username, id_role) VALUES
 
 INSERT INTO s_user (id, username, id_role) VALUES
   ('u002', 'endy.muhardin@gmail.com', 'manager');
-
-INSERT INTO s_user_password (id_user, password) VALUES
-  -- password : test123
-  ('u001', '$2a$13$d2GZHGr6gedUiNk8r3Pbo.Jc8eH7oBVdTta.WGMG9g1dO9T4hlNPG');
-
-INSERT INTO s_user_password (id_user, password) VALUES
-  -- password : test123
-  ('u002', '$2a$13$d2GZHGr6gedUiNk8r3Pbo.Jc8eH7oBVdTta.WGMG9g1dO9T4hlNPG');
