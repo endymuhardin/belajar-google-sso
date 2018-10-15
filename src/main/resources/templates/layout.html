@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aplikasi Internet Banking</title>
+
+    <style>
+        ul.nav {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333333;
+        }
+
+        ul.nav li {
+            float: left;
+        }
+
+        ul.nav li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 16px;
+            text-decoration: none;
+        }
+
+        ul.nav li a:hover {
+            background-color: #111111;
+        }
+
+        div.rightnav {
+            float: right;
+            padding: 15.5px;
+            color: white;
+            background-color: #333333;
+        }
+
+        div.rightnav form {
+            display: inline;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Aplikasi Internet Banking</h1>
+    <div class="rightnav">
+        Welcome, <span sec:authentication="name">current user</span>
+        <form method="post" th:action="@{/logout}">
+            <input type="submit" value="Logout">
+        </form>
+    </div>
+    <ul class="nav">
+        <li>
+            <a th:href="@{/home}">Home</a>
+        </li>
+        <li>
+            <a th:href="@{/rekening}" sec:authorize="hasAuthority('VIEW_REKENING')">Daftar Rekening</a>
+        </li>
+        <li>
+            <a th:href="@{/mutasi}" sec:authorize="hasAuthority('VIEW_MUTASI')">Mutasi Rekening</a>
+        </li>
+        <li>
+            <a th:href="@{/transfer}" sec:authorize="hasAuthority('EDIT_TRANSFER')">Transfer</a>
+        </li>
+    </ul>
+    <hr />
+    <div>
+        Authorities :
+        <ul>
+            <li th:each="authority : ${#authentication.authorities}" th:text="${authority}">View Rekening</li>
+        </ul>
+    </div>
+
+    <hr />
+
+    <section layout:fragment="content">
+        <p>Page content goes here</p>
+    </section>
+</body>
+</html>
