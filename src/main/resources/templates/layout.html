@@ -45,7 +45,7 @@
 <body>
     <h1>Aplikasi Internet Banking</h1>
     <div class="rightnav">
-        Welcome, <span sec:authentication="name">current user</span>
+        Welcome, <span th:text="${#authentication.principal.fullName}">current user</span>
         <form method="post" th:action="@{/logout}">
             <input type="submit" value="Logout">
         </form>
